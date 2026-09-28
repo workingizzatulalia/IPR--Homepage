@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chapters · Industry Performance Report 2025</title>
+  <meta name="description" content="Explore the eight chapters of the Industry Performance Report 2025.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    document.documentElement.classList.add('js');
+    // Viewport width without the scrollbar, so the bleed-right grid lines up with the container
+    (function () {
+      function setVw() { document.documentElement.style.setProperty('--vw', document.documentElement.clientWidth + 'px'); }
+      setVw();
+      window.addEventListener('resize', setVw);
+    })();
+  </script>
+  <style>
+    /* ---------- Tokens (same as index.html) ---------- */
+    :root {
+      --indigo: #3b3470;
+      --indigo-deep: #2d275c;
+      --violet-bright: #5e4aa8;
+      --lavender: #e6e3fb;
+      --ink: #1e1745;
+      --ink-muted: #1e1745b8;
+      --accent: #f2b0cf;
+      --white: #fff;
+      --text-muted: #e6e3fbc2;
+      --line-light: #e6e3fb40;
+
+      --container: 75rem;
+      --pad: 5rem;
+      --gutter: max(var(--pad), (var(--vw, 100vw) - var(--container)) / 2);
+      --section-lg: 8rem;
+      --section-md: 5rem;
+      --space-lg: 3rem;
+      --cols: 14;
+
+      --h2: 2.75rem;
+      --text-regular: 1.125rem;
+      --text-small: .9375rem;
+      --text-eyebrow: .75rem;
+
+      --ease-out-2: cubic-bezier(.25, .46, .45, .94);
+      --ease-out-3: cubic-bezier(.215, .61, .355, 1);
+      --ease-line: cubic-bezier(.625, .05, 0, 1);
+
+      color-scheme: dark;
+    }
+
+    @media (max-width: 991px) {
+      :root {
+        --pad: 2rem;
+        --section-lg: 6rem;
+        --section-md: 4rem;
+        --space-lg: 2.5rem;
+        --cols: 8;
+        --h2: 2.25rem;
+      }
+    }
+
+    @media (max-width: 767px) {
+      :root {
+        --pad: 1.25rem;
+        --section-lg: 4rem;
+        --section-md: 3rem;
+        --space-lg: 2rem;
+        --cols: 6;
+        --h2: 2rem;
+        --text-regular: 1rem;
+      }
+    }
+
+    /* ---------- Base ---------- */
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    /* Keep in-page jumps clear of the sticky nav */
+    [id] { scroll-margin-top: 5rem; }
+
+    body {
+      margin: 0;
+      background-color: var(--indigo);
+      color: var(--white);
+      font-family: 'Figtree', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      font-size: var(--text-regular);
+      line-height: 1.5;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    h1, h2, p { margin: 0; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; }
+
+    ::selection { background-color: var(--violet-bright); color: var(--white); }
+
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    .sprite {
+      position: absolute;
+      width: 0;
+      height: 0;
+      overflow: hidden;
+    }
+
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--container);
+      margin-inline: auto;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
+      align-items: start;
+    }
+
+    /* Underline that wipes in from the left on hover, out to the right */
+    .u-link { position: relative; }
+    .u-link::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -.05em;
+      width: 100%;
+      height: .0625em;
+      background-color: currentColor;
+      transform-origin: right;
+      transform: scaleX(0) rotate(.001deg);
+      transition: transform .735s var(--ease-line);
+    }
+    .u-link:hover::before {
+      transform-origin: left;
+      transform: scaleX(1) rotate(.001deg);
+    }
+
+    /* ---------- Buttons with bracket corners ---------- */
+    .button {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: .75rem 1.125rem;
+      color: var(--white);
+      font-size: var(--text-eyebrow);
+      line-height: 1.4;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      transition: background-color .3s, color .3s;
+    }
+    .button:hover { background-color: var(--lavender); color: var(--ink); }
+
+    .button__corner {
+      position: absolute;
+      width: .75rem;
+      height: .75rem;
+      border: 0 solid var(--white);
+      pointer-events: none;
+      transition: transform .3s;
+    }
+    .button__corner.tl { top: 0; left: 0; border-top-width: 1px; border-left-width: 1px; }
+    .button__corner.tr { top: 0; right: 0; border-top-width: 1px; border-right-width: 1px; }
+    .button__corner.bl { bottom: 0; left: 0; border-bottom-width: 1px; border-left-width: 1px; }
+    .button__corner.br { bottom: 0; right: 0; border-bottom-width: 1px; border-right-width: 1px; }
+    .button:hover .button__corner.tl { transform: translate(-8px, -8px); }
+    .button:hover .button__corner.tr { transform: translate(8px, -8px); }
+    .button:hover .button__corner.bl { transform: translate(-8px, 8px); }
+    .button:hover .button__corner.br { transform: translate(8px, 8px); }
+
+    /* ---------- Chapter artwork (same as index.html) ----------
+       Generated faceted sunbursts standing in for the chapter images.
+       Replace with <img> tags once the real artwork is exported. */
+    .chapter-art {
+      background:
+        radial-gradient(circle at 50% 50%, #ffffff5c 0 3%, transparent 20%),
+        radial-gradient(circle at 50% 50%, transparent 40%, #0a052066 100%),
+        repeating-conic-gradient(from var(--from, 0deg) at 50% 50%, #ffffff1f 0deg 5deg, transparent 5deg 16deg, #0000002e 16deg 21deg, transparent 21deg 34deg),
+        conic-gradient(from var(--from, 0deg) at 50% 50%,
+          var(--c1) 0deg 14deg, var(--c3) 14deg 31deg, var(--c2) 31deg 40deg, var(--c4) 40deg 58deg,
+          var(--c1) 58deg 71deg, var(--c2) 71deg 90deg, var(--c3) 90deg 104deg, var(--c1) 104deg 118deg,
+          var(--c4) 118deg 135deg, var(--c2) 135deg 150deg, var(--c3) 150deg 166deg, var(--c1) 166deg 181deg,
+          var(--c2) 181deg 199deg, var(--c4) 199deg 212deg, var(--c3) 212deg 230deg, var(--c1) 230deg 247deg,
+          var(--c2) 247deg 262deg, var(--c3) 262deg 280deg, var(--c4) 280deg 301deg, var(--c1) 301deg 318deg,
+          var(--c3) 318deg 334deg, var(--c2) 334deg 348deg, var(--c4) 348deg 360deg);
+    }
+    .art-1 { --from: 8deg;   --c1: #d8d3cb; --c2: #8e867b; --c3: #5b4b3d; --c4: #f3f0ea; }
+    .art-2 { --from: 40deg;  --c1: #24523a; --c2: #7aa383; --c3: #dfe9e0; --c4: #0f2618; }
+    .art-3 { --from: 75deg;  --c1: #f39a3c; --c2: #b8591c; --c3: #ffd4a3; --c4: #6b2e10; }
+    .art-4 { --from: 110deg; --c1: #f0629a; --c2: #9a3ab0; --c3: #ff9d5c; --c4: #5a1a6a; }
+    .art-5 { --from: 150deg; --c1: #e8364a; --c2: #c42a8c; --c3: #ff9cc2; --c4: #2c4cb8; }
+    .art-6 { --from: 190deg; --c1: #8fd0ff; --c2: #eaf6ff; --c3: #3a8fd8; --c4: #1c5a9c; }
+    .art-7 { --from: 230deg; --c1: #1f33bd; --c2: #0b1466; --c3: #4d6dff; --c4: #3a1a8a; }
+    .art-8 { --from: 270deg; --c1: #4b4b54; --c2: #18181e; --c3: #8c8c96; --c4: #2e2e36; }
+
+    /* ---------- Fixed background (dusk sky + radio dish) ---------- */
+    .page-bg {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .page-bg__media {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .page-bg__art {
+      will-change: transform;
+      animation: drift 50s ease-in-out infinite alternate;
+    }
+
+    @keyframes drift {
+      from { transform: scale(1.04); }
+      to   { transform: scale(1.12) translate3d(-1.5%, -1%, 0); }
+    }
+
+    /* ---------- Nav ---------- */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      padding: 1.5rem var(--pad);
+      transition: padding .3s, background-color .3s, backdrop-filter .3s, -webkit-backdrop-filter .3s;
+    }
+
+    .nav.is-active {
+      padding-block: .875rem;
+      background-color: #2d275c99;
+      -webkit-backdrop-filter: blur(40px);
+      backdrop-filter: blur(40px);
+    }
+
+    .nav__inner { align-items: center; }
+
+    .nav__brand {
+      grid-column: 1 / span 3;
+      justify-self: start;
+      display: inline-flex;
+    }
+    .nav__logo {
+      display: block;
+      width: 3.7rem;
+      height: 3.25rem;
+      transition: width .3s, height .3s;
+    }
+    .nav.is-active .nav__logo { width: 2.85rem; height: 2.5rem; }
+
+    .nav__link {
+      justify-self: start;
+      font-size: var(--text-small);
+      text-transform: uppercase;
+      transition: color .2s;
+    }
+    .nav__link:hover { color: var(--accent); }
+    .nav__link[aria-current="page"] {
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      text-underline-position: under;
+    }
+    .nav__link[aria-current="page"]::before { content: none; }
+    .nav__link--1 { grid-column: 9 / 11; }
+    .nav__link--2 { grid-column: 11 / 13; }
+    .nav__link--3 { grid-column: 13 / 15; }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      padding: var(--section-lg) var(--pad) var(--section-md);
+      background: linear-gradient(180deg, #29245f 0%, #362f6c 55%, #433881 100%);
+    }
+
+    .hero__title {
+      font-size: var(--h2);
+      line-height: 1.05;
+      font-weight: 400;
+      letter-spacing: -.0625rem;
+    }
+
+    .hero__title .line {
+      display: block;
+      overflow: hidden;
+      padding-bottom: .1em;
+      margin-bottom: -.1em;
+    }
+    .hero__title .line > span {
+      display: block;
+      animation: line-up .8s var(--ease-out-3) .1s both;
+    }
+
+    .hero__copy {
+      display: grid;
+      gap: 1.5rem;
+      max-width: 30rem;
+      margin-top: 1.25rem;
+      color: var(--text-muted);
+    }
+    .hero__copy p { animation: fade-up .5s var(--ease-out-2) both; }
+    .hero__copy p:nth-child(1) { animation-delay: .55s; }
+    .hero__copy p:nth-child(2) { animation-delay: .65s; }
+
+    @keyframes line-up { from { transform: translateY(110%); opacity: 0; } }
+    @keyframes fade-up { from { transform: translateY(20px); opacity: 0; } }
+
+    /* ---------- Chapter grid ---------- */
+    .chapter-grid {
+      /* Starts at the content edge and runs off the right side of the screen */
+      margin-top: 2rem;
+      margin-left: var(--gutter);
+      overflow: hidden;
+      overflow: clip;
+    }
+
+    .chapter-grid__list {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+
+    .chapter-card {
+      --rise: 30%;
+      --step: .1s;
+      display: flex;
+      flex-direction: column;
+      /* 1px overlap so the background can't show through seams at fractional column widths */
+      width: calc(100% + 1px);
+      height: calc(100% + 1px);
+      background-color: var(--violet-bright);
+    }
+    .chapter-card:hover {
+      background-color: var(--lavender);
+      color: var(--ink);
+    }
+
+    .chapter-card__media {
+      aspect-ratio: 1;
+      overflow: hidden;
+      overflow: clip;
+    }
+
+    .chapter-card__img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .8s cubic-bezier(.22, 1, .36, 1);
+    }
+    .chapter-card:hover .chapter-card__img { transform: scale(1.12) rotate(6deg); }
+
+    .chapter-card__text {
+      flex: 1;
+      padding: .875rem 1.25rem 1.5rem;
+    }
+
+    .chapter-card__num {
+      font-size: var(--text-regular);
+      line-height: 1.3;
+    }
+
+    .chapter-card__title {
+      margin-top: .25rem;
+      font-size: .6875rem;
+      line-height: 1.4;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      color: var(--text-muted);
+      transition: color .3s;
+    }
+    .chapter-card:hover .chapter-card__title { color: var(--ink-muted); }
+
+    /* ---------- Window onto the background ---------- */
+    .window {
+      height: 30vh;
+      min-height: 12rem;
+    }
+
+    /* ---------- Footer ---------- */
+    .footer {
+      background-color: var(--indigo-deep);
+      padding: var(--section-md) var(--pad) var(--space-lg);
+      font-size: var(--text-small);
+    }
+
+    .footer__inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: end;
+      justify-content: space-between;
+      gap: 2rem;
+      padding-top: var(--space-lg);
+      border-top: 1px solid var(--line-light);
+    }
+
+    .footer__brand {
+      display: grid;
+      gap: .5rem;
+    }
+    .footer__name {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      font-size: var(--text-regular);
+      font-weight: 600;
+    }
+    .footer__logo { display: block; flex: none; width: 2.3rem; height: 2rem; }
+    .footer__legal { color: var(--text-muted); }
+
+    .footer__links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 2rem;
+      align-items: center;
+    }
+    .footer__links a { transition: color .2s; }
+    .footer__links a:hover { color: var(--accent); }
+    .footer__links .button:hover { color: var(--ink); }
+
+    /* ---------- Scroll reveal ----------
+       Visibility is checked on the untransformed .reveal-host wrapper, so the
+       card's starting offset doesn't delay when it's detected on screen. */
+    .js .reveal {
+      opacity: 0;
+      transform: translateY(var(--rise, 24px));
+      transition:
+        opacity .8s var(--ease-out-2) calc(var(--i, 0) * var(--step, .08s)),
+        transform .8s var(--ease-out-2) calc(var(--i, 0) * var(--step, .08s)),
+        background-color .3s,
+        color .3s;
+    }
+    .js .is-in > .reveal { opacity: 1; transform: none; }
+
+    /* Artwork wipes down from the top as its card appears */
+    .js .reveal .wipe {
+      clip-path: inset(0 0 100% 0);
+      transition:
+        clip-path .8s var(--ease-out-2) calc(var(--i, 0) * var(--step, .08s)),
+        transform .8s cubic-bezier(.22, 1, .36, 1);
+    }
+    .js .is-in > .reveal .wipe { clip-path: inset(0 0 0 0); }
+
+    /* ---------- Tablet ---------- */
+    @media (max-width: 991px) {
+      .nav__inner { display: flex; gap: 2rem; }
+      .nav__brand { margin-right: auto; }
+
+      .hero { padding-top: var(--section-md); }
+
+      .chapter-grid__list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+
+    /* ---------- Mobile ---------- */
+    @media (max-width: 767px) {
+      .nav { padding-block: 1rem; }
+      .nav.is-active { padding-block: .75rem; }
+      .nav__inner { display: flex; gap: 1rem; }
+      .nav__brand { margin-right: auto; }
+      .nav__logo,
+      .nav.is-active .nav__logo { width: 2.55rem; height: 2.25rem; }
+      .nav__link { font-size: .8125rem; }
+
+      .chapter-grid__list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .chapter-card__text { padding: .75rem 1rem 1.25rem; }
+
+      .footer__inner { flex-direction: column; align-items: start; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .page-bg__art,
+      .hero__title .line > span,
+      .hero__copy p { animation: none; }
+      .js .reveal { opacity: 1; transform: none; transition: background-color .3s, color .3s; }
+      .js .reveal .wipe { clip-path: none; transition: none; }
+      .chapter-card:hover .chapter-card__img { transform: none; }
+      .u-link::before { transition: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Logo, defined once and reused in the nav and footer. Replace with your real logo. -->
+  <svg class="sprite" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="logo-top" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#ffd23f"/>
+        <stop offset="1" stop-color="#f28a2e"/>
+      </linearGradient>
+      <linearGradient id="logo-left" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#f0476a"/>
+        <stop offset="1" stop-color="#b8267a"/>
+      </linearGradient>
+      <linearGradient id="logo-right" x1="1" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#3fa8f0"/>
+        <stop offset="1" stop-color="#2a4fc0"/>
+      </linearGradient>
+    </defs>
+    <symbol id="logo-mark" viewBox="0 0 64 56">
+      <path d="M32 2L47 28H17Z" fill="url(#logo-top)"/>
+      <path d="M17 28L32 54H2Z" fill="url(#logo-left)"/>
+      <path d="M47 28L62 54H32Z" fill="url(#logo-right)"/>
+      <path d="M17 28H47L32 54Z" fill="#f4f1ff"/>
+    </symbol>
+  </svg>
+
+  <!-- Background (same as index.html). To use the real photo instead of the illustration,
+       replace the <svg> with: <img class="page-bg__media" src="images/dish.jpg" alt=""> -->
+  <div class="page-bg" aria-hidden="true">
+    <svg class="page-bg__media page-bg__art" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#2f2862"/>
+          <stop offset=".35" stop-color="#55448f"/>
+          <stop offset=".65" stop-color="#9468ad"/>
+          <stop offset=".86" stop-color="#cf86b4"/>
+          <stop offset="1" stop-color="#eba6bd"/>
+        </linearGradient>
+        <radialGradient id="glow" cx=".8" cy=".95" r=".6">
+          <stop offset="0" stop-color="#ffd3da" stop-opacity=".6"/>
+          <stop offset="1" stop-color="#ffd3da" stop-opacity="0"/>
+        </radialGradient>
+        <linearGradient id="face" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#f3eaf5"/>
+          <stop offset=".45" stop-color="#c3b1d9"/>
+          <stop offset="1" stop-color="#7a66a6"/>
+        </linearGradient>
+        <linearGradient id="steel" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#3a2a52"/>
+          <stop offset="1" stop-color="#1c1330"/>
+        </linearGradient>
+        <pattern id="truss" width="26" height="26" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+          <path d="M0 0H26M0 0V26" stroke="#6a4f86" stroke-width="2" fill="none"/>
+        </pattern>
+      </defs>
+
+      <rect width="1600" height="1000" fill="url(#sky)"/>
+      <rect width="1600" height="1000" fill="url(#glow)"/>
+
+      <g fill="#fff">
+        <circle cx="1180" cy="110" r="1.6" opacity=".7"/>
+        <circle cx="1320" cy="190" r="1.2" opacity=".5"/>
+        <circle cx="1460" cy="80" r="1.4" opacity=".6"/>
+        <circle cx="980" cy="60" r="1.1" opacity=".5"/>
+        <circle cx="1510" cy="260" r="1" opacity=".4"/>
+        <circle cx="1090" cy="230" r="1" opacity=".4"/>
+      </g>
+
+      <!-- Tower -->
+      <path d="M390 840L250 1000H650L510 840Z" fill="url(#steel)"/>
+      <path d="M390 840L250 1000H650L510 840Z" fill="url(#truss)" opacity=".55"/>
+
+      <!-- Dish -->
+      <g transform="translate(520 640) rotate(20)">
+        <path d="M-500 0C-420 300 420 300 500 0A500 150 0 0 1 -500 0Z" fill="url(#steel)"/>
+        <path d="M-500 0C-420 300 420 300 500 0A500 150 0 0 1 -500 0Z" fill="url(#truss)" opacity=".6"/>
+        <ellipse rx="500" ry="150" fill="url(#face)"/>
+        <g fill="none" stroke="#5b4a86" stroke-opacity=".25">
+          <ellipse rx="400" ry="120"/>
+          <ellipse rx="290" ry="87"/>
+          <ellipse rx="180" ry="54"/>
+          <ellipse rx="70" ry="21"/>
+          <path d="M0 0L500 0M0 0L433 75M0 0L250 130M0 0L0 150M0 0L-250 130M0 0L-433 75M0 0L-500 0M0 0L-433 -75M0 0L-250 -130M0 0L0 -150M0 0L250 -130M0 0L433 -75"/>
+        </g>
+        <ellipse rx="500" ry="150" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="3"/>
+        <path d="M-354 106L0 -380M354 106L0 -380M-354 -106L0 -380M354 -106L0 -380" stroke="#2a1e40" stroke-width="7" stroke-linecap="round"/>
+        <rect x="-24" y="-420" width="48" height="62" rx="6" fill="#2a1e40"/>
+      </g>
+    </svg>
+  </div>
+
+  <!-- Nav -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner grid">
+      <a href="index.html" class="nav__brand" aria-label="Industry Performance Report 2025, home">
+        <svg class="nav__logo" aria-hidden="true"><use href="#logo-mark"/></svg>
+      </a>
+      <a href="chapters.html" class="nav__link nav__link--1 u-link" aria-current="page">Chapters</a>
+      <!-- TODO: point at the statistics page once it exists -->
+      <a href="#" class="nav__link nav__link--2 u-link">Statistic</a>
+      <!-- TODO: point at the report PDF -->
+      <a href="#" class="nav__link nav__link--3 u-link">Download</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container" data-nav-trigger>
+        <h1 class="hero__title"><span class="line"><span>Chapters</span></span></h1>
+        <div class="hero__copy">
+          <p>Explore the performance, developments and key trends shaping Malaysia’s communications and multimedia industry in 2025.</p>
+          <p>Across eight chapters, the Industry Performance Report examines the licensing landscape, economic performance, services and connectivity, content services, online and community services, postal and courier activity, quality of services, and the outlook for the industry.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Chapter cards. To use the real artwork, swap a generated placeholder for:
+         <img class="chapter-card__img wipe" src="images/chapter-01.jpg" alt="" loading="lazy"> -->
+    <section class="chapter-grid" aria-labelledby="chapter-grid-title">
+      <h2 class="visually-hidden" id="chapter-grid-title">All chapters</h2>
+      <div class="chapter-grid__list" role="list">
+        <div role="listitem" class="reveal-host" id="chapter-1">
+          <a href="#" class="chapter-card reveal">
+            <div class="chapter-card__media"><div class="chapter-card__img wipe chapter-art art-1"></div></div>
+            <div class="chapter-card__text">
+              <p class="chapter-card__num">Chapter 1</p>
+              <p class="chapter-card__title">Licensing</p>
+            </div>
+          </a>
+        </div>
+        <div role="listitem" class="reveal-host" id="chapter-2">
+          <a href="#" class="chapter-card reveal">
+            <div class="chapter-card__media"><div class="chapter-card__img wipe chapter-art art-2"></div></div>
+            <div class="chapter-card__text">
+              <p class="chapter-card__num">Chapter 2</p>
+              <p class="chapter-card__title">Economic Performance of the Industry</p>
+            </div>
+          </a>
+        </div>
+        <div role="listitem" class="reveal-host" id="chapter-3">
+          <a href="#" class="chapter-card reveal">
+            <div class="chapter-card__media"><div class="chapter-card__img wipe chapter-art art-3"></div></div>
+            <div class="chapter-card__text">
+              <p class="chapter-card__num">Chapter 3</p>
+              <p class="chapter-card__title">Services and Connectivity</p>
+            </div>
+          </a>
+        </div>
+        <div role="listitem" class="reveal-host" id="chapter-4">
+          <a href="#" class="chapter-card reveal">
+            <div class="chapter-card__media"><div class="chapter-card__img wipe chapter-art art-4"></div></div>
+            <div class="chapter-card__text">
+              <p class="chapter-card__num">Chapter 4</p>
+              <p class="chapter-card__title">Content Services</p>
+            </div>
+          </a>
+        </div>
+        <div role="listitem" class="reveal-host" id="chapter-5">
+          <a href="#" class="chapter-card reveal">
+            <div class="chapter-card__media"><div class="chapter-card__img wipe chapter-art art-5"></div></div>
+            <div class="chapter-card__text">
+              <p class="chapter-card__num">Chapter 5</p>
+              <p class="chapter-card__title">Online and Community Services</p>
+            </div>
+          </a>
+        </div>
+        <div role="listitem" class="reveal-host" id="chapter-6">
+          <a href="#" class="chapter-card reveal">
+            <div class="chapter-card__media"><div class="chapter-card__img wipe chapter-art art-6"></div></div>
+            <div class="chapter-card__text">
+              <p class="chapter-card__num">Chapter 6</p>
+              <p class="chapter-card__title">Postal and Courier</p>
+            </div>
+          </a>
+        </div>
+        <div role="listitem" class="reveal-host" id="chapter-7">
+          <a href="#" class="chapter-card reveal">
+            <div class="chapter-card__media"><div class="chapter-card__img wipe chapter-art art-7"></div></div>
+            <div class="chapter-card__text">
+              <p class="chapter-card__num">Chapter 7</p>
+              <p class="chapter-card__title">Quality of Services</p>
+            </div>
+          </a>
+        </div>
+        <div role="listitem" class="reveal-host" id="chapter-8">
+          <a href="#" class="chapter-card reveal">
+            <div class="chapter-card__media"><div class="chapter-card__img wipe chapter-art art-8"></div></div>
+            <div class="chapter-card__text">
+              <p class="chapter-card__num">Chapter 8</p>
+              <p class="chapter-card__title">Outlook</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Open space where the background shows through -->
+    <div class="window" aria-hidden="true"></div>
+  </main>
+
+  <!-- Footer (same as index.html) -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <div class="footer__name">
+          <svg class="footer__logo" aria-hidden="true"><use href="#logo-mark"/></svg>
+          Industry Performance Report 2025
+        </div>
+        <p class="footer__legal">© 2025 Your Organisation. All rights reserved.</p>
+      </div>
+      <nav class="footer__links" aria-label="Footer">
+        <a href="chapters.html" class="u-link">Chapters</a>
+        <a href="#" class="u-link">Statistic</a>
+        <a href="#" class="u-link">Download</a>
+        <a href="ipr-team.html" class="u-link">Team</a>
+        <a href="#top" class="button">
+          Back to top ↑
+          <span class="button__corner tl"></span><span class="button__corner tr"></span><span class="button__corner bl"></span><span class="button__corner br"></span>
+        </a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      // Nav turns into a blurred glass bar once the page scrolls
+      var nav = document.getElementById('nav');
+      var trigger = document.querySelector('[data-nav-trigger]');
+      var ticking = false;
+
+      function updateNav() {
+        ticking = false;
+        var active = nav.getBoundingClientRect().bottom >= trigger.getBoundingClientRect().top;
+        nav.classList.toggle('is-active', active);
+      }
+      function requestNavUpdate() {
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(updateNav);
+        }
+      }
+      window.addEventListener('scroll', requestNavUpdate, { passive: true });
+      window.addEventListener('resize', requestNavUpdate);
+      updateNav();
+
+      // Cards rise in as they scroll into view. Cards that appear together
+      // are staggered, so each new row starts its own sequence.
+      var items = document.querySelectorAll('.reveal-host');
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          var n = 0;
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            entry.target.style.setProperty('--i', n++);
+            entry.target.classList.add('is-in');
+            io.unobserve(entry.target);
+          });
+        }, { rootMargin: '0px 0px -10% 0px' });
+        items.forEach(function (el) { io.observe(el); });
+      } else {
+        items.forEach(function (el) { el.classList.add('is-in'); });
+      }
+    })();
+  </script>
+</body>
+</html>
