@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Industry Performance Report 2025</title>
+  <meta name="description" content="How Malaysia’s communications and multimedia industry performed in 2025, chapter by chapter.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    document.documentElement.classList.add('js');
+    // Viewport width without the scrollbar, so bleed-right blocks line up with the container
+    (function () {
+      function setVw() { document.documentElement.style.setProperty('--vw', document.documentElement.clientWidth + 'px'); }
+      setVw();
+      window.addEventListener('resize', setVw);
+    })();
+  </script>
+  <style>
+    /* ---------- Tokens ---------- */
+    :root {
+      --indigo: #3b3470;
+      --indigo-deep: #2d275c;
+      --violet: #4b3f8f;
+      --violet-bright: #5e4aa8;
+      --purple: #8f80d0;
+      --lavender: #e6e3fb;
+      --lavender-hover: #d9d4f7;
+      --ink: #1e1745;
+      --ink-muted: #1e1745b8;
+      --accent: #f2b0cf;
+      --white: #fff;
+      --text-muted: #e6e3fbc2;
+      --line-light: #e6e3fb40;
+      --line-dark: #1e174526;
+
+      --container: 75rem;
+      --pad: 5rem;
+      --indent: 5rem;
+      --gutter: max(var(--pad), (var(--vw, 100vw) - var(--container)) / 2);
+      --section-lg: 8rem;
+      --section-md: 5rem;
+      --space-lg: 3rem;
+      --cols: 14;
+
+      --h1: 4rem;
+      --h2: 2.75rem;
+      --text-lead: 1.5rem;
+      --text-regular: 1.125rem;
+      --text-small: .9375rem;
+      --text-eyebrow: .75rem;
+
+      --ease-out-2: cubic-bezier(.25, .46, .45, .94);
+      --ease-out-3: cubic-bezier(.215, .61, .355, 1);
+      --ease-line: cubic-bezier(.625, .05, 0, 1);
+
+      color-scheme: dark;
+    }
+
+    @media (max-width: 991px) {
+      :root {
+        --pad: 2rem;
+        --indent: 2.5rem;
+        --section-lg: 6rem;
+        --section-md: 4rem;
+        --space-lg: 2.5rem;
+        --cols: 8;
+        --h1: 3.25rem;
+        --h2: 2.25rem;
+      }
+    }
+
+    @media (max-width: 767px) {
+      :root {
+        --pad: 1.25rem;
+        --indent: 1.25rem;
+        --section-lg: 4rem;
+        --section-md: 3rem;
+        --space-lg: 2rem;
+        --cols: 6;
+        --h1: 2.5rem;
+        --h2: 1.875rem;
+        --text-lead: 1.25rem;
+        --text-regular: 1rem;
+      }
+    }
+
+    /* ---------- Base ---------- */
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    /* Keep in-page jumps clear of the sticky nav */
+    [id] { scroll-margin-top: 5rem; }
+
+    body {
+      margin: 0;
+      background-color: var(--indigo);
+      color: var(--white);
+      font-family: 'Figtree', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      font-size: var(--text-regular);
+      line-height: 1.5;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    h1, h2, h3, p { margin: 0; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; }
+    button { font: inherit; }
+
+    ::selection { background-color: var(--violet-bright); color: var(--white); }
+
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+    .panel--light :focus-visible,
+    .summary__body :focus-visible { outline-color: var(--violet-bright); }
+
+    .sprite {
+      position: absolute;
+      width: 0;
+      height: 0;
+      overflow: hidden;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--container);
+      margin-inline: auto;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
+      align-items: start;
+    }
+
+    .heading {
+      font-size: var(--h2);
+      line-height: 1.05;
+      font-weight: 400;
+      letter-spacing: -.0625rem;
+    }
+
+    /* Underline that wipes in from the left on hover, out to the right */
+    .u-link { position: relative; }
+    .u-link::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -.05em;
+      width: 100%;
+      height: .0625em;
+      background-color: currentColor;
+      transform-origin: right;
+      transform: scaleX(0) rotate(.001deg);
+      transition: transform .735s var(--ease-line);
+    }
+    .u-link:hover::before {
+      transform-origin: left;
+      transform: scaleX(1) rotate(.001deg);
+    }
+
+    .arrow-link {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      font-size: var(--text-small);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: .02em;
+    }
+    .arrow-link__icon { transition: transform .3s var(--ease-out-2); }
+    .arrow-link:hover .arrow-link__icon { transform: translateX(4px); }
+
+    /* ---------- Buttons with bracket corners ---------- */
+    .button {
+      --corner: var(--white);
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: .75rem 1.125rem;
+      border: 0;
+      background-color: transparent;
+      color: var(--white);
+      font-size: var(--text-eyebrow);
+      line-height: 1.4;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background-color .3s, color .3s;
+    }
+    .button:hover { background-color: var(--lavender); color: var(--ink); }
+
+    .button--dark { --corner: var(--ink); color: var(--ink); }
+    .button--dark:hover { background-color: var(--violet-bright); color: var(--white); }
+
+    .button__corner {
+      position: absolute;
+      width: .75rem;
+      height: .75rem;
+      border: 0 solid var(--corner);
+      pointer-events: none;
+      transition: transform .3s;
+    }
+    .button__corner.tl { top: 0; left: 0; border-top-width: 1px; border-left-width: 1px; }
+    .button__corner.tr { top: 0; right: 0; border-top-width: 1px; border-right-width: 1px; }
+    .button__corner.bl { bottom: 0; left: 0; border-bottom-width: 1px; border-left-width: 1px; }
+    .button__corner.br { bottom: 0; right: 0; border-bottom-width: 1px; border-right-width: 1px; }
+    .button:hover .button__corner.tl { transform: translate(-8px, -8px); }
+    .button:hover .button__corner.tr { transform: translate(8px, -8px); }
+    .button:hover .button__corner.bl { transform: translate(-8px, 8px); }
+    .button:hover .button__corner.br { transform: translate(8px, 8px); }
+
+    /* ---------- Chapter artwork ----------
+       Generated faceted sunbursts standing in for the chapter images.
+       Replace with <img> tags once the real artwork is exported. */
+    .chapter-art {
+      background:
+        radial-gradient(circle at 50% 50%, #ffffff5c 0 3%, transparent 20%),
+        radial-gradient(circle at 50% 50%, transparent 40%, #0a052066 100%),
+        repeating-conic-gradient(from var(--from, 0deg) at 50% 50%, #ffffff1f 0deg 5deg, transparent 5deg 16deg, #0000002e 16deg 21deg, transparent 21deg 34deg),
+        conic-gradient(from var(--from, 0deg) at 50% 50%,
+          var(--c1) 0deg 14deg, var(--c3) 14deg 31deg, var(--c2) 31deg 40deg, var(--c4) 40deg 58deg,
+          var(--c1) 58deg 71deg, var(--c2) 71deg 90deg, var(--c3) 90deg 104deg, var(--c1) 104deg 118deg,
+          var(--c4) 118deg 135deg, var(--c2) 135deg 150deg, var(--c3) 150deg 166deg, var(--c1) 166deg 181deg,
+          var(--c2) 181deg 199deg, var(--c4) 199deg 212deg, var(--c3) 212deg 230deg, var(--c1) 230deg 247deg,
+          var(--c2) 247deg 262deg, var(--c3) 262deg 280deg, var(--c4) 280deg 301deg, var(--c1) 301deg 318deg,
+          var(--c3) 318deg 334deg, var(--c2) 334deg 348deg, var(--c4) 348deg 360deg);
+    }
+    .art-1 { --from: 8deg;   --c1: #d8d3cb; --c2: #8e867b; --c3: #5b4b3d; --c4: #f3f0ea; }
+    .art-2 { --from: 40deg;  --c1: #24523a; --c2: #7aa383; --c3: #dfe9e0; --c4: #0f2618; }
+    .art-3 { --from: 75deg;  --c1: #f39a3c; --c2: #b8591c; --c3: #ffd4a3; --c4: #6b2e10; }
+    .art-4 { --from: 110deg; --c1: #f0629a; --c2: #9a3ab0; --c3: #ff9d5c; --c4: #5a1a6a; }
+    .art-5 { --from: 150deg; --c1: #e8364a; --c2: #c42a8c; --c3: #ff9cc2; --c4: #2c4cb8; }
+    .art-6 { --from: 190deg; --c1: #8fd0ff; --c2: #eaf6ff; --c3: #3a8fd8; --c4: #1c5a9c; }
+    .art-7 { --from: 230deg; --c1: #1f33bd; --c2: #0b1466; --c3: #4d6dff; --c4: #3a1a8a; }
+    .art-8 { --from: 270deg; --c1: #4b4b54; --c2: #18181e; --c3: #8c8c96; --c4: #2e2e36; }
+
+    /* ---------- Fixed background (dusk sky + radio dish) ---------- */
+    .page-bg {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .page-bg__media {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .page-bg__art {
+      will-change: transform;
+      animation: drift 50s ease-in-out infinite alternate;
+    }
+
+    @keyframes drift {
+      from { transform: scale(1.04); }
+      to   { transform: scale(1.12) translate3d(-1.5%, -1%, 0); }
+    }
+
+    /* ---------- Nav ---------- */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      padding: 1.5rem var(--pad);
+      transition: padding .3s, background-color .3s, backdrop-filter .3s, -webkit-backdrop-filter .3s;
+    }
+
+    .nav.is-active {
+      padding-block: .875rem;
+      background-color: #2d275c99;
+      -webkit-backdrop-filter: blur(40px);
+      backdrop-filter: blur(40px);
+    }
+
+    .nav__inner { align-items: center; }
+
+    .nav__brand {
+      grid-column: 1 / span 3;
+      justify-self: start;
+      display: inline-flex;
+    }
+    .nav__logo {
+      display: block;
+      width: 3.7rem;
+      height: 3.25rem;
+      transition: width .3s, height .3s;
+    }
+    .nav.is-active .nav__logo { width: 2.85rem; height: 2.5rem; }
+
+    .nav__link {
+      justify-self: start;
+      font-size: var(--text-small);
+      text-transform: uppercase;
+      transition: color .2s;
+    }
+    .nav__link:hover { color: var(--accent); }
+    .nav__link[aria-current="page"] {
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      text-underline-position: under;
+    }
+    .nav__link[aria-current="page"]::before { content: none; }
+    .nav__link--1 { grid-column: 9 / 11; }
+    .nav__link--2 { grid-column: 11 / 13; }
+    .nav__link--3 { grid-column: 13 / 15; }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      background-color: var(--indigo);
+      padding: var(--section-md) var(--pad) var(--section-lg);
+    }
+
+    .hero__grid { row-gap: 2rem; }
+
+    .hero__title {
+      grid-column: 1 / 7;
+      font-size: var(--h1);
+      line-height: 1.05;
+      font-weight: 400;
+      letter-spacing: -.125rem;
+    }
+
+    .hero__title .line {
+      display: block;
+      overflow: hidden;
+      padding-bottom: .1em;
+      margin-bottom: -.1em;
+    }
+    .hero__title .line > span {
+      display: block;
+      animation: line-up .8s var(--ease-out-3) both;
+    }
+    .hero__title .line:nth-child(1) > span { animation-delay: .1s; }
+    .hero__title .line:nth-child(2) > span { animation-delay: .2s; }
+    .hero__title .line:nth-child(3) > span { animation-delay: .3s; }
+
+    .hero__copy {
+      grid-column: 8 / 15;
+      display: grid;
+      gap: 1.5rem;
+      justify-items: start;
+      padding-top: .5rem;
+    }
+    .hero__copy > * { animation: fade-up .5s var(--ease-out-2) both; }
+    .hero__copy > :nth-child(1) { animation-delay: .7s; }
+    .hero__copy > :nth-child(2) { animation-delay: .8s; }
+    .hero__copy > :nth-child(3) { animation-delay: .9s; }
+
+    .hero__lead {
+      font-size: var(--text-lead);
+      line-height: 1.35;
+      font-weight: 500;
+    }
+    .hero__text { color: var(--text-muted); }
+
+    @keyframes line-up { from { transform: translateY(110%); opacity: 0; } }
+    @keyframes fade-up { from { transform: translateY(20px); opacity: 0; } }
+    @keyframes fade-down { from { transform: translateY(-6px); opacity: 0; } }
+
+    /* ---------- Bleed-right stack ---------- */
+    .stack { margin-left: var(--gutter); }
+
+    .panel {
+      padding: var(--section-md) var(--gutter) var(--section-md) var(--indent);
+    }
+    .panel--light { background-color: var(--lavender); color: var(--ink); }
+
+    /* Chairman */
+    .message {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+      gap: var(--space-lg) 4rem;
+      align-items: center;
+    }
+
+    .message__body {
+      display: grid;
+      gap: 1.5rem;
+      justify-items: start;
+      max-width: 26rem;
+    }
+    .message__text { color: var(--ink-muted); }
+    .message__sign { font-size: var(--text-small); color: var(--ink-muted); }
+    .message__sign strong { display: block; color: var(--ink); font-weight: 600; }
+
+    .portrait {
+      aspect-ratio: 1.03;
+      overflow: hidden;
+      overflow: clip;
+    }
+    .portrait__img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .8s cubic-bezier(.22, 1, .36, 1);
+    }
+    .portrait:hover .portrait__img { transform: scale(1.04); }
+
+    /* Stand-in until the real photo is added */
+    .portrait__img.is-placeholder {
+      background:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg fill='%233b3470' fill-opacity='.55'%3E%3Ccircle cx='50' cy='33' r='12'/%3E%3Cpath d='M26 100V62c0-10 10-16 24-16s24 6 24 16v38z'/%3E%3C/g%3E%3C/svg%3E") center bottom / 100% 100% no-repeat,
+        linear-gradient(180deg, #f1eff9 0%, #d7d1ee 55%, #8f80d0 100%);
+    }
+
+    /* ---------- Executive Summary ---------- */
+    .summary__intro {
+      padding: var(--space-lg) var(--gutter) 3.5rem var(--indent);
+      background: linear-gradient(90deg, #4a3e8e 0%, #5a4ba5 60%, #7565b8 100%);
+    }
+
+    .summary__intro-inner {
+      display: grid;
+      gap: 2.5rem;
+      justify-items: start;
+    }
+
+    .summary__lede {
+      max-width: 26rem;
+      color: var(--text-muted);
+    }
+
+    .summary__body {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(0, 1fr);
+      background-color: var(--lavender);
+      color: var(--ink);
+    }
+
+    .summary__facts {
+      display: grid;
+      gap: 1.5rem;
+      align-content: start;
+      justify-items: start;
+      padding: 2.75rem 3.5rem 3.5rem var(--indent);
+    }
+    .summary__facts p { max-width: 31rem; }
+    .summary__facts .button { margin-top: .5rem; }
+
+    /* Topic list: each row opens to a short summary and a chapter link */
+    .topics { border-left: 1px solid var(--line-dark); }
+
+    .topic { border-bottom: 1px solid var(--line-dark); }
+
+    .topic__summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      padding: 1.375rem max(1.75rem, var(--gutter) - 4.5rem) 1.375rem 1.75rem;
+      font-size: var(--text-lead);
+      line-height: 1.3;
+      list-style: none;
+      cursor: pointer;
+      transition: background-color .2s;
+    }
+    .topic__summary::-webkit-details-marker { display: none; }
+    .topic__summary:hover { background-color: var(--lavender-hover); }
+
+    /* Plus icon that turns into a minus when the row is open */
+    .topic__icon {
+      position: relative;
+      flex: none;
+      width: 1.125rem;
+      height: 1.125rem;
+      color: var(--purple);
+    }
+    .topic__icon::before,
+    .topic__icon::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 100%;
+      height: 1.5px;
+      margin-top: -.75px;
+      background-color: currentColor;
+      transition: transform .3s var(--ease-out-2);
+    }
+    .topic__icon::after { transform: rotate(90deg); }
+    .topic[open] .topic__icon::after { transform: rotate(0deg); }
+
+    .topic__panel {
+      display: grid;
+      gap: 1rem;
+      justify-items: start;
+      padding: 0 max(1.75rem, var(--gutter) - 4.5rem) 1.75rem 1.75rem;
+      color: var(--ink-muted);
+    }
+    .topic[open] .topic__panel { animation: fade-down .35s var(--ease-out-2); }
+    .topic__panel .arrow-link { color: var(--ink); }
+
+    /* ---------- Window onto the background ---------- */
+    .window {
+      height: 85vh;
+      min-height: 26rem;
+    }
+
+    /* ---------- Chapters ---------- */
+    .chapters {
+      background-color: var(--indigo-deep);
+      padding-top: var(--section-lg);
+      padding-bottom: var(--section-md);
+    }
+
+    .chapters__head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-left: var(--gutter);
+      padding: 0 var(--gutter) 2rem var(--indent);
+    }
+    .chapters__count {
+      font-size: var(--text-eyebrow);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--text-muted);
+    }
+
+    .chapters__list {
+      margin-left: var(--gutter);
+      border-top: 1px solid var(--line-light);
+      padding-top: 1.5rem;
+    }
+
+    .chapter {
+      display: grid;
+      grid-template-columns: 5.5rem 3rem minmax(0, 1fr) auto;
+      align-items: center;
+      column-gap: 1.5rem;
+      margin-left: var(--indent);
+      padding-right: var(--gutter);
+    }
+    .chapter:hover { background-color: var(--lavender); color: var(--ink); }
+
+    .chapter__thumb {
+      display: block;
+      aspect-ratio: 1;
+      overflow: hidden;
+      overflow: clip;
+    }
+    .chapter__img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .6s cubic-bezier(.22, 1, .36, 1);
+    }
+    .chapter:hover .chapter__img { transform: scale(1.12) rotate(8deg); }
+
+    .chapter__num {
+      font-size: var(--text-small);
+      color: var(--text-muted);
+      font-variant-numeric: tabular-nums;
+      transition: color .3s;
+    }
+    .chapter:hover .chapter__num { color: var(--ink-muted); }
+
+    .chapter__title {
+      font-size: var(--text-lead);
+      line-height: 1.2;
+      padding-block: .75rem;
+    }
+
+    .chapter__arrow {
+      font-size: 1.25rem;
+      transition: transform .3s var(--ease-out-2);
+    }
+    .chapter:hover .chapter__arrow { transform: translateX(6px); }
+
+    /* ---------- Footer ---------- */
+    .footer {
+      background-color: var(--indigo-deep);
+      padding: var(--section-md) var(--pad) var(--space-lg);
+      font-size: var(--text-small);
+    }
+
+    .footer__inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: end;
+      justify-content: space-between;
+      gap: 2rem;
+      padding-top: var(--space-lg);
+      border-top: 1px solid var(--line-light);
+    }
+
+    .footer__brand {
+      display: grid;
+      gap: .5rem;
+    }
+    .footer__name {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      font-size: var(--text-regular);
+      font-weight: 600;
+    }
+    .footer__logo { display: block; flex: none; width: 2.3rem; height: 2rem; }
+    .footer__legal { color: var(--text-muted); }
+
+    .footer__links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 2rem;
+      align-items: center;
+    }
+    .footer__links a { transition: color .2s; }
+    .footer__links a:hover { color: var(--accent); }
+    .footer__links .button:hover { color: var(--ink); }
+
+    /* ---------- Scroll reveal ---------- */
+    .js .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition:
+        opacity .8s var(--ease-out-2) calc(var(--i, 0) * .08s),
+        transform .8s var(--ease-out-2) calc(var(--i, 0) * .08s),
+        background-color .3s,
+        color .3s;
+    }
+    .js .reveal.is-in { opacity: 1; transform: none; }
+
+    .js .portrait .portrait__img {
+      clip-path: inset(0 0 100% 0);
+      transition: clip-path 1s var(--ease-out-2) .15s, transform .8s cubic-bezier(.22, 1, .36, 1);
+    }
+    .js .portrait.is-in .portrait__img { clip-path: inset(0 0 0 0); }
+
+    /* ---------- Tablet ---------- */
+    @media (max-width: 991px) {
+      .nav__inner { display: flex; gap: 2rem; }
+      .nav__brand { margin-right: auto; }
+
+      .hero__title,
+      .hero__copy { grid-column: 1 / -1; }
+      .hero__copy { max-width: 36rem; }
+
+      .message { grid-template-columns: minmax(0, 1fr); }
+      .portrait { max-width: 32rem; }
+
+      .summary__body { grid-template-columns: minmax(0, 1fr); }
+      .summary__facts { padding-right: var(--gutter); }
+      .topics { border-left: 0; border-top: 1px solid var(--line-dark); }
+      .topic__summary { padding-left: var(--indent); }
+      .topic__panel { padding-left: var(--indent); }
+    }
+
+    /* ---------- Mobile ---------- */
+    @media (max-width: 767px) {
+      .nav { padding-block: 1rem; }
+      .nav.is-active { padding-block: .75rem; }
+      .nav__inner { display: flex; gap: 1rem; }
+      .nav__brand { margin-right: auto; }
+      .nav__logo,
+      .nav.is-active .nav__logo { width: 2.55rem; height: 2.25rem; }
+      .nav__link { font-size: .8125rem; }
+
+      .topic__summary { font-size: 1.125rem; }
+
+      .chapter {
+        grid-template-columns: 4.5rem minmax(0, 1fr) auto;
+        column-gap: 1rem;
+      }
+      .chapter__num { display: none; }
+      .chapter__title { font-size: 1.125rem; }
+
+      .footer__inner { flex-direction: column; align-items: start; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .page-bg__art,
+      .hero__title .line > span,
+      .hero__copy > *,
+      .topic[open] .topic__panel { animation: none; }
+      .js .reveal { opacity: 1; transform: none; transition: background-color .3s, color .3s; }
+      .js .portrait .portrait__img { clip-path: none; transition: none; }
+      .u-link::before { transition: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Logo, defined once and reused in the nav and footer. Replace with your real logo. -->
+  <svg class="sprite" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="logo-top" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#ffd23f"/>
+        <stop offset="1" stop-color="#f28a2e"/>
+      </linearGradient>
+      <linearGradient id="logo-left" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#f0476a"/>
+        <stop offset="1" stop-color="#b8267a"/>
+      </linearGradient>
+      <linearGradient id="logo-right" x1="1" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#3fa8f0"/>
+        <stop offset="1" stop-color="#2a4fc0"/>
+      </linearGradient>
+    </defs>
+    <symbol id="logo-mark" viewBox="0 0 64 56">
+      <path d="M32 2L47 28H17Z" fill="url(#logo-top)"/>
+      <path d="M17 28L32 54H2Z" fill="url(#logo-left)"/>
+      <path d="M47 28L62 54H32Z" fill="url(#logo-right)"/>
+      <path d="M17 28H47L32 54Z" fill="#f4f1ff"/>
+    </symbol>
+  </svg>
+
+  <!-- Background. To use the real photo instead of the illustration, replace the <svg> with:
+       <img class="page-bg__media" src="images/dish.jpg" alt=""> -->
+  <div class="page-bg" aria-hidden="true">
+    <svg class="page-bg__media page-bg__art" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#2f2862"/>
+          <stop offset=".35" stop-color="#55448f"/>
+          <stop offset=".65" stop-color="#9468ad"/>
+          <stop offset=".86" stop-color="#cf86b4"/>
+          <stop offset="1" stop-color="#eba6bd"/>
+        </linearGradient>
+        <radialGradient id="glow" cx=".8" cy=".95" r=".6">
+          <stop offset="0" stop-color="#ffd3da" stop-opacity=".6"/>
+          <stop offset="1" stop-color="#ffd3da" stop-opacity="0"/>
+        </radialGradient>
+        <linearGradient id="face" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#f3eaf5"/>
+          <stop offset=".45" stop-color="#c3b1d9"/>
+          <stop offset="1" stop-color="#7a66a6"/>
+        </linearGradient>
+        <linearGradient id="steel" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#3a2a52"/>
+          <stop offset="1" stop-color="#1c1330"/>
+        </linearGradient>
+        <pattern id="truss" width="26" height="26" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+          <path d="M0 0H26M0 0V26" stroke="#6a4f86" stroke-width="2" fill="none"/>
+        </pattern>
+      </defs>
+
+      <rect width="1600" height="1000" fill="url(#sky)"/>
+      <rect width="1600" height="1000" fill="url(#glow)"/>
+
+      <g fill="#fff">
+        <circle cx="1180" cy="110" r="1.6" opacity=".7"/>
+        <circle cx="1320" cy="190" r="1.2" opacity=".5"/>
+        <circle cx="1460" cy="80" r="1.4" opacity=".6"/>
+        <circle cx="980" cy="60" r="1.1" opacity=".5"/>
+        <circle cx="1510" cy="260" r="1" opacity=".4"/>
+        <circle cx="1090" cy="230" r="1" opacity=".4"/>
+      </g>
+
+      <!-- Tower -->
+      <path d="M390 840L250 1000H650L510 840Z" fill="url(#steel)"/>
+      <path d="M390 840L250 1000H650L510 840Z" fill="url(#truss)" opacity=".55"/>
+
+      <!-- Dish -->
+      <g transform="translate(520 640) rotate(20)">
+        <path d="M-500 0C-420 300 420 300 500 0A500 150 0 0 1 -500 0Z" fill="url(#steel)"/>
+        <path d="M-500 0C-420 300 420 300 500 0A500 150 0 0 1 -500 0Z" fill="url(#truss)" opacity=".6"/>
+        <ellipse rx="500" ry="150" fill="url(#face)"/>
+        <g fill="none" stroke="#5b4a86" stroke-opacity=".25">
+          <ellipse rx="400" ry="120"/>
+          <ellipse rx="290" ry="87"/>
+          <ellipse rx="180" ry="54"/>
+          <ellipse rx="70" ry="21"/>
+          <path d="M0 0L500 0M0 0L433 75M0 0L250 130M0 0L0 150M0 0L-250 130M0 0L-433 75M0 0L-500 0M0 0L-433 -75M0 0L-250 -130M0 0L0 -150M0 0L250 -130M0 0L433 -75"/>
+        </g>
+        <ellipse rx="500" ry="150" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="3"/>
+        <path d="M-354 106L0 -380M354 106L0 -380M-354 -106L0 -380M354 -106L0 -380" stroke="#2a1e40" stroke-width="7" stroke-linecap="round"/>
+        <rect x="-24" y="-420" width="48" height="62" rx="6" fill="#2a1e40"/>
+      </g>
+    </svg>
+  </div>
+
+  <!-- Nav -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner grid">
+      <a href="index.html" class="nav__brand" aria-label="Industry Performance Report 2025, home">
+        <svg class="nav__logo" aria-hidden="true"><use href="#logo-mark"/></svg>
+      </a>
+      <a href="chapters.html" class="nav__link nav__link--1 u-link">Chapters</a>
+      <!-- TODO: point at the statistics page once it exists -->
+      <a href="#" class="nav__link nav__link--2 u-link">Statistic</a>
+      <!-- TODO: point at the report PDF -->
+      <a href="#" class="nav__link nav__link--3 u-link">Download</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero" id="overview">
+      <div class="container hero__grid grid" data-nav-trigger>
+        <h1 class="hero__title">
+          <span class="line"><span>Industry</span></span>
+          <span class="line"><span>Performance</span></span>
+          <span class="line"><span>Report 2025</span></span>
+        </h1>
+        <div class="hero__copy">
+          <p class="hero__lead">A clear view of how the industry performed in 2025, and where it goes next.</p>
+          <p class="hero__text">Drawing on data from across the sector, this year’s report tracks output, investment, trade and jobs, and sets out the trends shaping the year ahead. Start with the highlights below or go straight to a chapter.</p>
+          <!-- TODO: point at the report PDF -->
+          <a href="#" class="button">
+            Download the report
+            <span class="button__corner tl"></span><span class="button__corner tr"></span><span class="button__corner bl"></span><span class="button__corner br"></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blocks that run from the content edge to the right edge of the screen -->
+    <div class="stack">
+      <section class="panel panel--light" aria-labelledby="message-title">
+        <div class="message">
+          <div class="message__body reveal">
+            <h2 class="heading" id="message-title">Chairman’s<br>Message</h2>
+            <p class="message__text">A year of steady progress, built on the resilience of the people and businesses that make up our industry.</p>
+            <p class="message__sign"><strong>Full Name</strong>Chairman</p>
+            <a href="#" class="arrow-link"><span class="u-link">Read the message</span> <span class="arrow-link__icon" aria-hidden="true">→</span></a>
+          </div>
+          <!-- Swap the placeholder for: <img class="portrait__img" src="images/chairman.jpg" alt="Full Name, Chairman"> -->
+          <div class="portrait reveal">
+            <div class="portrait__img is-placeholder" role="img" aria-label="Portrait of the Chairman"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="summary" id="executive-summary" aria-labelledby="summary-title">
+        <div class="summary__intro">
+          <div class="summary__intro-inner reveal">
+            <h2 class="heading" id="summary-title">Executive<br>Summary</h2>
+            <p class="summary__lede">Malaysia’s communications and multimedia industry remained resilient in 2025, supported by sustained demand for connectivity, continued infrastructure investment and the growing role of digital services in everyday life.</p>
+          </div>
+        </div>
+
+        <div class="summary__body">
+          <div class="summary__facts reveal">
+            <p>Listed communications and multimedia companies recorded RM110.63 billion in market capitalisation, while industry revenue grew by 1.5% to RM49.65 billion. National connectivity also advanced, with 9.81 million premises passed with fibre, 95.7% 4G LTE coverage in populated areas and 29.0 million 5G subscriptions.</p>
+            <p>Across the wider ecosystem, digital inclusion, online safety, trusted transactions, content innovation and the continued growth of e-commerce and parcel delivery reinforced the industry’s role in Malaysia’s digital future.</p>
+            <!-- TODO: point at the full executive summary -->
+            <a href="#" class="button button--dark">
+              Read executive summary
+              <span class="button__corner tl"></span><span class="button__corner tr"></span><span class="button__corner bl"></span><span class="button__corner br"></span>
+            </a>
+          </div>
+
+          <!-- The one-line summaries inside each topic are placeholders; replace them with the report's text -->
+          <div class="topics reveal">
+            <details class="topic" name="topics">
+              <summary class="topic__summary">Economic Performance of the Industry <span class="topic__icon" aria-hidden="true"></span></summary>
+              <div class="topic__panel">
+                <p>Revenue, investment and market capitalisation across the communications and multimedia industry.</p>
+                <a href="chapters.html#chapter-2" class="arrow-link"><span class="u-link">Read chapter 2</span> <span class="arrow-link__icon" aria-hidden="true">→</span></a>
+              </div>
+            </details>
+            <details class="topic" name="topics">
+              <summary class="topic__summary">State of Connectivity in Malaysia <span class="topic__icon" aria-hidden="true"></span></summary>
+              <div class="topic__panel">
+                <p>Fibre, mobile and 5G coverage and take-up, and how networks performed through the year.</p>
+                <a href="chapters.html#chapter-3" class="arrow-link"><span class="u-link">Read chapter 3</span> <span class="arrow-link__icon" aria-hidden="true">→</span></a>
+              </div>
+            </details>
+            <details class="topic" name="topics">
+              <summary class="topic__summary">Content Services <span class="topic__icon" aria-hidden="true"></span></summary>
+              <div class="topic__panel">
+                <p>Broadcasting, streaming and local content, and how audiences are changing.</p>
+                <a href="chapters.html#chapter-4" class="arrow-link"><span class="u-link">Read chapter 4</span> <span class="arrow-link__icon" aria-hidden="true">→</span></a>
+              </div>
+            </details>
+            <details class="topic" name="topics">
+              <summary class="topic__summary">Online and Community Services <span class="topic__icon" aria-hidden="true"></span></summary>
+              <div class="topic__panel">
+                <p>Digital inclusion, online safety and programmes that help communities get online.</p>
+                <a href="chapters.html#chapter-5" class="arrow-link"><span class="u-link">Read chapter 5</span> <span class="arrow-link__icon" aria-hidden="true">→</span></a>
+              </div>
+            </details>
+            <details class="topic" name="topics">
+              <summary class="topic__summary">Postal and Courier <span class="topic__icon" aria-hidden="true"></span></summary>
+              <div class="topic__panel">
+                <p>Parcel volumes, delivery networks and the role of e-commerce.</p>
+                <a href="chapters.html#chapter-6" class="arrow-link"><span class="u-link">Read chapter 6</span> <span class="arrow-link__icon" aria-hidden="true">→</span></a>
+              </div>
+            </details>
+            <details class="topic" name="topics">
+              <summary class="topic__summary">Quality of Services <span class="topic__icon" aria-hidden="true"></span></summary>
+              <div class="topic__panel">
+                <p>How service quality is measured, and how providers performed against the standards.</p>
+                <a href="chapters.html#chapter-7" class="arrow-link"><span class="u-link">Read chapter 7</span> <span class="arrow-link__icon" aria-hidden="true">→</span></a>
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Open space where the background shows through -->
+    <div class="window" aria-hidden="true"></div>
+
+    <!-- Chapters. To use real artwork, swap each generated thumbnail for:
+         <img class="chapter__img" src="images/chapter-01.jpg" alt=""> -->
+    <section class="chapters" id="chapters" aria-labelledby="chapters-title">
+      <div class="chapters__head reveal">
+        <h2 class="heading" id="chapters-title">Report Chapters</h2>
+        <p class="chapters__count">8 chapters</p>
+      </div>
+      <div class="chapters__list">
+        <a href="chapters.html#chapter-1" class="chapter reveal">
+          <span class="chapter__thumb"><span class="chapter__img chapter-art art-1"></span></span>
+          <span class="chapter__num">01</span>
+          <span class="chapter__title">Licensing</span>
+          <span class="chapter__arrow" aria-hidden="true">→</span>
+        </a>
+        <a href="chapters.html#chapter-2" class="chapter reveal">
+          <span class="chapter__thumb"><span class="chapter__img chapter-art art-2"></span></span>
+          <span class="chapter__num">02</span>
+          <span class="chapter__title">Economic Performance of the Industry</span>
+          <span class="chapter__arrow" aria-hidden="true">→</span>
+        </a>
+        <a href="chapters.html#chapter-3" class="chapter reveal">
+          <span class="chapter__thumb"><span class="chapter__img chapter-art art-3"></span></span>
+          <span class="chapter__num">03</span>
+          <span class="chapter__title">Services and Connectivity</span>
+          <span class="chapter__arrow" aria-hidden="true">→</span>
+        </a>
+        <a href="chapters.html#chapter-4" class="chapter reveal">
+          <span class="chapter__thumb"><span class="chapter__img chapter-art art-4"></span></span>
+          <span class="chapter__num">04</span>
+          <span class="chapter__title">Content Services</span>
+          <span class="chapter__arrow" aria-hidden="true">→</span>
+        </a>
+        <a href="chapters.html#chapter-5" class="chapter reveal">
+          <span class="chapter__thumb"><span class="chapter__img chapter-art art-5"></span></span>
+          <span class="chapter__num">05</span>
+          <span class="chapter__title">Online and Community Services</span>
+          <span class="chapter__arrow" aria-hidden="true">→</span>
+        </a>
+        <a href="chapters.html#chapter-6" class="chapter reveal">
+          <span class="chapter__thumb"><span class="chapter__img chapter-art art-6"></span></span>
+          <span class="chapter__num">06</span>
+          <span class="chapter__title">Postal and Courier</span>
+          <span class="chapter__arrow" aria-hidden="true">→</span>
+        </a>
+        <a href="chapters.html#chapter-7" class="chapter reveal">
+          <span class="chapter__thumb"><span class="chapter__img chapter-art art-7"></span></span>
+          <span class="chapter__num">07</span>
+          <span class="chapter__title">Quality of Services</span>
+          <span class="chapter__arrow" aria-hidden="true">→</span>
+        </a>
+        <a href="chapters.html#chapter-8" class="chapter reveal">
+          <span class="chapter__thumb"><span class="chapter__img chapter-art art-8"></span></span>
+          <span class="chapter__num">08</span>
+          <span class="chapter__title">Outlook</span>
+          <span class="chapter__arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <div class="footer__name">
+          <svg class="footer__logo" aria-hidden="true"><use href="#logo-mark"/></svg>
+          Industry Performance Report 2025
+        </div>
+        <p class="footer__legal">© 2025 Your Organisation. All rights reserved.</p>
+      </div>
+      <nav class="footer__links" aria-label="Footer">
+        <a href="chapters.html" class="u-link">Chapters</a>
+        <a href="#" class="u-link">Statistic</a>
+        <a href="#" class="u-link">Download</a>
+        <a href="ipr-team.html" class="u-link">Team</a>
+        <a href="#top" class="button">
+          Back to top ↑
+          <span class="button__corner tl"></span><span class="button__corner tr"></span><span class="button__corner bl"></span><span class="button__corner br"></span>
+        </a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      // Nav turns into a blurred glass bar once the page scrolls
+      var nav = document.getElementById('nav');
+      var trigger = document.querySelector('[data-nav-trigger]');
+      var ticking = false;
+
+      function updateNav() {
+        ticking = false;
+        var active = nav.getBoundingClientRect().bottom >= trigger.getBoundingClientRect().top;
+        nav.classList.toggle('is-active', active);
+      }
+      function requestNavUpdate() {
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(updateNav);
+        }
+      }
+      window.addEventListener('scroll', requestNavUpdate, { passive: true });
+      window.addEventListener('resize', requestNavUpdate);
+      updateNav();
+
+      // Fade/rise blocks in as they scroll into view. Blocks that appear
+      // together are staggered, so each new batch starts its own sequence.
+      var items = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          var n = 0;
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            entry.target.style.setProperty('--i', n++);
+            entry.target.classList.add('is-in');
+            io.unobserve(entry.target);
+          });
+        }, { rootMargin: '0px 0px -10% 0px' });
+        items.forEach(function (el) { io.observe(el); });
+      } else {
+        items.forEach(function (el) { el.classList.add('is-in'); });
+      }
+    })();
+  </script>
+</body>
+</html>
